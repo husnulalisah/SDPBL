@@ -86,10 +86,10 @@ class Transaksi {
     return '''
 ID Transaksi: $id
 
---- Data Penyewa ---
+=== DATA PENYEWA === 
 ${penyewa.toString()}
 
---- Data HP ---
+===== DATA HP =====
 ${hp.toString()}
 Tanggal Sewa: ${tanggalSewa.toString().split(' ')[0]}
 Durasi: $durasiHari hari
@@ -260,31 +260,32 @@ void main() {
 
   while (true) {
     clearScreen();
-    print('╔═══════════════════════════════════════╗');
-    print('║      Sistem Penyewaan iPhone          ║');
-    print('╠═══════════════════════════════════════╣');
-    print('║ 1. Tampilkan Daftar iPhone            ║');
-    print('║ 2. Sewa iPhone                        ║');
-    print('║ 3. Kembalikan iPhone                  ║');
-    print('║ 4. Lihat Riwayat Transaksi            ║');
-    print('║ 5. Lihat Riwayat Status iPhone        ║');
-    print('║ 6. Keluar                             ║');
-    print('╚═══════════════════════════════════════╝');
+    print('\n' + '=' * 35);
+    print('======SISTEM PENYEWAAN IPHONE======');
+    print('=' * 35);
+  
+    print(' 1. Tampilkan Daftar iPhone            ');
+    print(' 2. Sewa iPhone                        ');
+    print(' 3. Kembalikan iPhone                  ');
+    print(' 4. Lihat Riwayat Transaksi            ');
+    print(' 5. Lihat Riwayat Status iPhone        ');
+    print(' 6. Keluar                             ');
 
     var pilihan = getIntInput('\nPilih menu (1-6): ');
 
     switch (pilihan) {
       case 1:
-        print('╔═══════════════════════════════════════╗');
-        print('║         DAFTAR IPHONE                 ║');
-        print('╚═══════════════════════════════════════╝');
+        print('\n' + '=' * 35);
+        print('========== DAFTAR IPHONE ==========');
+         print('=' * 35);
         sistem.tampilkanDaftarHP();
         break;
 
       case 2:
-        print('╔═══════════════════════════════════════╗');
-        print('║         FORM PENYEWAAN                ║');
-        print('╚═══════════════════════════════════════╝');
+        print('\n' + '=' * 35);
+        print('======== FORM PENYEWAAN ===========');
+        print('=' * 35);
+
         var nama = getInput('Nama: ');
         var noTelp = getInput('No. Telp: ');
         var alamat = getInput('Alamat: ');
@@ -325,39 +326,42 @@ void main() {
         break;
 
       case 3:
-        print('╔═══════════════════════════════════════╗');
-        print('║         FORM PENGEMBALIAN             ║');
-        print('╚═══════════════════════════════════════╝');
+       print('\n' + '=' * 35);
+        print('======== FORM PENGEMBALIAN ========');
+        print('=' * 35);
+  
         var idTransaksi = getInput('Masukkan ID Transaksi: ');
         sistem.kembalikanHP(idTransaksi);
         break;
 
       case 4:
-        print('╔═══════════════════════════════════════╗');
-        print('║         RIWAYAT TRANSAKSI             ║');
-        print('╚═══════════════════════════════════════╝');
+       print('\n' + '=' * 35);
+        print('======== RIWAYAT TRANSAKSI ========');
+        print('=' * 35);
+      
         sistem.tampilkanRiwayatTransaksi();
         break;
 
       case 5:
-        print('╔═══════════════════════════════════════╗');
-        print('║      RIWAYAT STATUS IPHONE            ║');
-        print('╚═══════════════════════════════════════╝');
+       print('\n' + '=' * 35);
+        print('======== RIWAYAT STATUS IPHONE ========');
+        print('=' * 35);
+       
         sistem.tampilkanRiwayatStatus();
         break;
 
       case 6:
-        print('╔═══════════════════════════════════════╗');
-        print('║    TERIMA KASIH TELAH MENGGUNAKAN     ║');
-        print('║         SISTEM KAMI!                  ║');
-        print('╚═══════════════════════════════════════╝');
+       print('\n' + '=' * 69);
+        print('===========  TERIMA KASIH TELAH MENGGUNAKAN SISTEM KAMI!  ===========');
+        print('=' * 69);
+      
         return;
 
       default:
-        print('\n⚠️ Pilihan tidak valid!');
+        print('\n Pilihan tidak valid!');
     }
 
-    print('\nTekan Enter untuk melanjutkan...');
+    print('\n Tekan Enter untuk melanjutkan...');
     stdin.readLineSync();
   }
 }
